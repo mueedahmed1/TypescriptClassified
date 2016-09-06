@@ -1,6 +1,7 @@
 var DataArr = [];
 var btn = document.getElementById("btn");
 var listt = document.getElementById("list");
+var update = document.getElementById("update");
 var HoldData = JSON.parse(localStorage.getItem("data")) || [];
 console.log(HoldData);
 if (btn) {
@@ -22,8 +23,10 @@ function showData() {
         });
         document.getElementById("edit" + index).addEventListener("click", function (e) {
             //  console.log(e);
+            localStorage.setItem("index", index);
+            window.location.href = 'index.html';
             //  console.log(index);
-            Edit(index);
+            // Edit(index);
         });
     });
     //console.log(document.getElementById(`id${index}`).parentNode.parentNode);
@@ -40,10 +43,44 @@ function deletefunc(indexx) {
     listt.removeChild(document.getElementById("ind" + indexx));
 }
 ;
+var getindx = localStorage.getItem("index");
+if (getindx) {
+    Edit(getindx);
+}
 function Edit(edtindx) {
     console.log("Edit work fine");
     console.log(edtindx);
+    var dat = HoldData[edtindx];
+    document.getElementById('input1').value = dat.product;
+    document.getElementById('input2').value = dat.contact;
+    document.getElementById('input3').value = dat.price;
+    localStorage.removeItem('index');
+    //    console.log(edtindx);
+    // console.log(dat);
+    // window.location.href = 'index.html';
+    // document.getElementById("update").style.display = "initial !important";
+    // window.location.href = 'index.html';
 }
+;
+if (update) {
+    document.getElementById("update").addEventListener("click", function () {
+        //    console.log(getindx);
+        var updt = JSON.parse(localStorage.getItem('data'));
+        // console.log(updt[getindx]);
+        updt[getindx].product = document.getElementById('input1').value;
+        updt[getindx].contact = document.getElementById('input2').value;
+        updt[getindx].price = document.getElementById('input3').value;
+        updt.splice(getindx, 1, {
+            product: updt[getindx].product,
+            contact: updt[getindx].contact,
+            price: updt[getindx].price
+        });
+        localStorage.setItem("data", JSON.stringify(updt));
+        window.location.href = 'secondpage.html';
+        // console.log(updt);
+    });
+}
+;
 if (listt) {
     showData();
 }
