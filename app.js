@@ -46,7 +46,10 @@ function deletefunc(indexx) {
 var getindx = localStorage.getItem("index");
 if (getindx) {
     Edit(getindx);
+    update.removeAttribute("disabled");
+    btn.setAttribute("disabled", "disabled");
 }
+;
 function Edit(edtindx) {
     console.log("Edit work fine");
     console.log(edtindx);
