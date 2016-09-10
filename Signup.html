@@ -4,29 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <style>
-        h1 {
-            background-color: blue;
-            color: white;
-        }
-    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Signup.css" rel="stylesheet" />
    
 </head>
 
-<body>
-    <center>
+<body class="container">
+    
+   <center>
         <h1>Sign Up</h1>
     </center>
 
+<div class="form-group">
 
     <input type="text"  name="choosename" placeholder="Pick a Username" autofocus>
+    
+    <p id="err"  style="display: none">
+       <span id="errspan" class="error"> Please Set Username First</span>
+    </p>
+    
+    <p id="correct" style="display: none">    
+        <span id="correctspan" class="correct">Correct Username</span>
+    </p>
+    
+    <p id="charonly" style="display: none">    
+        <span id="charonlyspan" class="error">Username must have alphabet characters only</span>
+    </p>
     <br />
-    <input type="email"  name="email" placeholder="Your Email Address">
-    <br />
-    <input type="password"  name="password" placeholder="Create a Password">
-    <br />
-    <button type="button" name="button">submit</button>
 
+<br />
+    <input type="email"  name="email" placeholder="Your Email Address">
+   
+    <p id="err1" style="display: none">
+       <span id="err1span" class="error"> Please Set Email Address</span>
+    </p>
+    <p id="correct1" style="display: none">    
+        <span id="correct1span" class="correct">Correct Email Address</span>
+    </p>
+<p id="charonly1" style="display: none">    
+        <span id="charonly1span" class="error">You have entered an invalid email address!</span>
+    </p>  
+    <br />
+
+<br />
+    <input type="password"  name="password" placeholder="Create a Password">
+    
+    <p id="err2" style="display: none">
+       <span id="err2span" class="error"> Please Set Password</span>
+    </p>
+    <p id="correct2" style="display: none">    
+        <span id="correct2span" class="correct">Correct Password</span>
+    </p>
+    <p id="charonly2" style="display: none">    
+        <span id="charonly2span" class="error">Email must have alphabet characters only</span>
+    </p>  
+    <br />
+
+<br />
+    <button type="button" name="button">submit</button>
+</div>
 
  <script src="Signup.js" type="text/javascript">
  
